@@ -3,7 +3,7 @@ package engine
 	
 	/**
 	 * models a spring with a mass attached
-	 * @author Kinoko
+	 * @author Anderson Li
 	 */
 	public class Spring
 	{
@@ -11,11 +11,8 @@ package engine
 		private var _length:Number; // length of spring - equilibrium
 		private var _k:Number; // spring constant
 		
-		public function Spring(mass:Number, length:Number, k:Number)
+		public function Spring()
 		{
-			_mass = mass;
-			_length = length;
-			_k = k;
 		}
 		
 		/* Getters and Setters */
