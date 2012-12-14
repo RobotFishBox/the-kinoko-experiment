@@ -5,13 +5,13 @@ package characters
 	import math.KPoint;
 	/**
 	 * ...
-	 * @author Kinoko
+	 * @author Anderson Li
 	 */
 	public class TestDummy implements ICharacters 
 	{
 		private var _frameRate:Number;
 		private var _point:KPoint;
-		private var _body:Sprite;
+		private var _displayObj:Sprite;
 		
 		public function TestDummy()
 		{
@@ -31,16 +31,16 @@ package characters
 			return _point;
 		}
 		
-		public function get body():DisplayObject
+		public function get displayObj():DisplayObject
 		{
-			return _body;
+			return _displayObj;
 		}
 		
 		public function load():void
 		{
-			_body = new Sprite();
-			_body.graphics.beginFill(0x123456);
-			_body.graphics.drawCircle(0, 0, 25);
+			_displayObj = new Sprite();
+			_displayObj.graphics.beginFill(0x123456);
+			_displayObj.graphics.drawCircle(0, 0, 25);
 		}
 		
 		public function animate():void
@@ -51,8 +51,8 @@ package characters
 		public function render():void
 		{
 			//render animation here if needed
-			_body.x = _point.x;
-			_body.y = _point.y;
+			_displayObj.x = _point.x;
+			_displayObj.y = _point.y;
 		}
 		
 		public function cleanUp():void

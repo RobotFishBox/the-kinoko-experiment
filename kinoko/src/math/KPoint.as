@@ -3,7 +3,7 @@ package math
 	import flash.geom.Point;
 	/**
 	 * flash geom point, but with extra functionality
-	 * @author Kinoko
+	 * @author Anderson Li
 	 */
 	public class KPoint extends Point 
 	{

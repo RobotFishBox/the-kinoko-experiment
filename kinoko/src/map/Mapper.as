@@ -2,7 +2,7 @@ package map
 {
 	/**
 	 * loads maps
-	 * @author Kinoko
+	 * @author Anderson Li
 	 */
 	public class Mapper 
 	{

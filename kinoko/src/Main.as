@@ -6,7 +6,7 @@ package
 	
 	/**
 	 * ...
-	 * @author Kinoko
+	 * @author Anderson Li
 	 */
 	[Frame(factoryClass="Preloader")]
 	
@@ -30,7 +30,7 @@ package
 			foo.point.x = 125;
 			foo.point.y = 125;
 			foo.render();
-			stage.addChild(foo.body);
+			stage.addChild(foo.displayObj);
 		}
 	
 	}

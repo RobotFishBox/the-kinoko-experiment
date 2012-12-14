@@ -11,7 +11,7 @@ package
 	
 	/**
 	 * ...
-	 * @author Kinoko
+	 * @author Anderson Li
 	 */
 	public class Preloader extends MovieClip 
 	{
