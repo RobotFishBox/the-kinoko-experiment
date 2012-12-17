@@ -1,8 +1,8 @@
 package characters 
 {
+	import engine.Body;
 	import flash.display.DisplayObject;
 	import flash.display.Sprite;
-	import math.KPoint;
 	/**
 	 * ...
 	 * @author Anderson Li
@@ -10,13 +10,13 @@ package characters
 	public class TestDummy implements ICharacters 
 	{
 		private var _frameRate:Number;
-		private var _point:KPoint;
+		private var _body:Body;
 		private var _displayObj:Sprite;
 		
 		public function TestDummy()
 		{
 			_frameRate = 12;
-			_point = new KPoint();
+			_body = new Body();
 		}
 		
 		/* INTERFACE characters.ICharacters */
@@ -26,9 +26,9 @@ package characters
 			return _frameRate;
 		}
 		
-		public function get point():KPoint
+		public function get body():Body
 		{
-			return _point;
+			return _body;
 		}
 		
 		public function get displayObj():DisplayObject
@@ -40,19 +40,19 @@ package characters
 		{
 			_displayObj = new Sprite();
 			_displayObj.graphics.beginFill(0x123456);
-			_displayObj.graphics.drawCircle(0, 0, 25);
+			_displayObj.graphics.drawCircle(0, 0, 5);
 		}
 		
 		public function animate():void
 		{
-		
+			
 		}
 		
 		public function render():void
 		{
 			//render animation here if needed
-			_displayObj.x = _point.x;
-			_displayObj.y = _point.y;
+			_displayObj.x = _body.pos.x;
+			_displayObj.y = _body.pos.y;
 		}
 		
 		public function cleanUp():void

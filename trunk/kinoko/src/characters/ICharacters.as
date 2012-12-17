@@ -1,7 +1,7 @@
 package characters 
 {
+	import engine.Body;
 	import flash.display.DisplayObject;
-	import math.KPoint;
 	/**
 	 * ...
 	 * @author Anderson Li
@@ -9,8 +9,8 @@ package characters
 	public interface ICharacters 
 	{	
 		function get frameRate():Number; // each character has his own frame rate
-		function get point():KPoint; // location of the character
-		function get displayObj():DisplayObject; // body of the character
+		function get body():Body; // body of the character
+		function get displayObj():DisplayObject; // display of the character
 			
 		function load():void; // loads assets to the character
 		function animate():void; // which frame to use upon render
