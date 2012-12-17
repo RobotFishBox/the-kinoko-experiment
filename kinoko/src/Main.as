@@ -1,36 +1,19 @@
 package
 {
-	import characters.TestDummy;
-	import flash.display.Sprite;
-	import flash.events.Event;
-	
+	import org.flixel.FlxGame;
+	import org.flixel.FlxState;
 	/**
 	 * ...
 	 * @author Anderson Li
 	 */
 	[Frame(factoryClass="Preloader")]
 	
-	public class Main extends Sprite
+	public class Main extends FlxGame
 	{
 		
-		public function Main():void
+		public function Main()
 		{
-			if (stage)
-				init();
-			else
-				addEventListener(Event.ADDED_TO_STAGE, init);
-		}
-		
-		private function init(e:Event = null):void
-		{
-			removeEventListener(Event.ADDED_TO_STAGE, init);
-			// entry point
-			var foo:TestDummy = new TestDummy();
-			foo.load();
-			foo.point.x = 125;
-			foo.point.y = 125;
-			foo.render();
-			stage.addChild(foo.displayObj);
+			super(500, 300, FlxState);
 		}
 	
 	}
