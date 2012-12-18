@@ -13,6 +13,7 @@ package
 	 * ...
 	 * @author Anderson Li
 	 */
+	 
 	public class Preloader extends MovieClip 
 	{
 		
