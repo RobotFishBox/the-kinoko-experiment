@@ -1,11 +1,12 @@
 package
 {
 	import org.flixel.FlxGame;
-	import org.flixel.FlxState;
+	import states.CanvasState;
 	/**
 	 * ...
 	 * @author Anderson Li
 	 */
+	[SWF(backgroundColor="#000000",width="500",height="250",frameRate="30")]
 	[Frame(factoryClass="Preloader")]
 	
 	public class Main extends FlxGame
@@ -13,7 +14,7 @@ package
 		
 		public function Main()
 		{
-			super(500, 300, FlxState);
+			super(500, 250, CanvasState);
 		}
 	
 	}
