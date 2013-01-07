@@ -46,8 +46,6 @@ package graphics
 			_body.y = y / _body.pixelScale.y;
 			_body.velocity.x = velocity.x / _body.pixelScale.x;
 			_body.velocity.y = velocity.y / _body.pixelScale.y;
-			_body.maxVelocity.x = maxVelocity.x / _body.pixelScale.x;
-			_body.maxVelocity.y = maxVelocity.y / _body.pixelScale.y;
 		}
 		
 		public function get body():KBody
