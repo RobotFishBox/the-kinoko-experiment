@@ -16,7 +16,7 @@ package engine
 		
 		/**
 		 * gravity of the world.
-		 * units measured in newtons (N).
+		 * units measured with acceleration (m/s^2).
 		 */
 		public var gravity:KPoint;
 		
@@ -35,6 +35,7 @@ package engine
 			pixelScale = new KPoint(1, 1);
 			gravity = new KPoint();
 			kObjects = new Array();
+			kWidgets = new Array();
 		}
 		
 		/**
@@ -46,10 +47,10 @@ package engine
 			for each (var kObject:IKObject in kObjects)
 			{
 				kObject.sync();
-				kObject.body.force.y += gravity.y;
-				kObject.body.force.x += gravity.x;
+				kObject.body.force.y += kObject.body.mass * gravity.y;
+				kObject.body.force.x += kObject.body.mass * gravity.x;
 			}
-		
+			
 			//operate all the widgets
 			for each (var kWidget:IKWidgets in kWidgets)
 			{

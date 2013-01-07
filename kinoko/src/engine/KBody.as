@@ -77,7 +77,10 @@ package engine
 		public function update(dTime:Number):void
 		{
 			if (fixed)
+			{
+				force.make();
 				return;
+			}
 			else
 			{
 				//compute
@@ -94,7 +97,7 @@ package engine
 				x += velocity.x * dTime;
 				y += velocity.y * dTime;
 				
-				//reset
+				//reset, the force applied has been used
 				force.make();
 				
 			}
