@@ -51,7 +51,7 @@ package states
 			_world.addKWidget(_kDamper);
 			
 			FlxG.camera.follow(_ninja, FlxCamera.STYLE_PLATFORMER);
-			FlxG.camera.setBounds(0, -2000, 500,5000);
+			FlxG.camera.setBounds(0, -2000, 500, 5000);
 		}
 		
 		override public function update():void
