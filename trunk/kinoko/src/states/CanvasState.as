@@ -1,5 +1,6 @@
 package states
 {
+	import actors.Template;
 	import engine.widgets.KDamper;
 	import engine.widgets.KSpring;
 	import graphics.KSprite;
@@ -21,9 +22,9 @@ package states
 		private var _floor:FlxTileblock = new FlxTileblock(-50, 250, 600, 32);
 		private var _world:KWorld = new KWorld();
 		private var _mouse:KSprite = new KSprite();
-		private var _ninja:KSprite = new KSprite();
+		private var _ninja:Template = new Template();
 		private var _kSpring:KSpring = new KSpring(_mouse, _ninja, 2000);
-		private var _kDamper:KDamper = new KDamper(600);
+		private var _kDamper:KDamper = new KDamper(900);
 		
 		override public function create():void
 		{
@@ -33,7 +34,7 @@ package states
 			add(_floor);
 			
 			_world.pixelScale.make(30, 30);
-			_world.gravity.make(0.5, 10);
+			_world.gravity.make(0, 10);
 			
 			//spring and damper test
 			_mouse.body.fixed = true;
