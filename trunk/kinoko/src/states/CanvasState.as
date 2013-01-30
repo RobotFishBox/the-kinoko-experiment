@@ -8,6 +8,7 @@ package states
 	import org.flixel.FlxCamera;
 	import org.flixel.FlxG;
 	import org.flixel.FlxGroup;
+	import org.flixel.FlxObject;
 	import org.flixel.FlxState;
 	import org.flixel.FlxTileblock;
 	
@@ -57,35 +58,72 @@ package states
 		
 		override public function update():void
 		{
-			_mouse.x = FlxG.mouse.x;
-			_mouse.y = FlxG.mouse.y;
-			if (FlxG.mouse.justPressed()) {
+			if (FlxG.mouse.justPressed())
+			{
 				_ninja.body.velocity.y = 0;
 				_ninja.body.acceleration.y = 0;
-				_ninja.body.force.y -= 20000;
+				_ninja.body.force.y -= 25000;
+				_ninja.jump();
 				_ninja.update();
 			}
-			if (FlxG.keys.UP) {
-				_kDamper.c ++;
+			if (FlxG.keys.UP)
+			{
+				_kDamper.c++;
 				trace("damper: " + _kDamper.c);
 			}
-			else if (FlxG.keys.DOWN) {
-				_kDamper.c --;
+			else if (FlxG.keys.DOWN)
+			{
+				_kDamper.c--;
 				trace("damper: " + _kDamper.c);
 			}
 			
-			if (FlxG.keys.LEFT) {
-				_kSpring.k ++;
+			if (FlxG.keys.LEFT)
+			{
+				_kSpring.k++;
 				trace("spring: " + _kSpring.k);
 			}
-			else if (FlxG.keys.RIGHT) {
-				_kSpring.k --;
+			else if (FlxG.keys.RIGHT)
+			{
+				_kSpring.k--;
 				trace("spring: " + _kSpring.k);
 			}
 			
 			_world.update();
 			super.update();
-			FlxG.collide(_floor, _ninja);
+			
+			_mouse.x = FlxG.mouse.x;
+			_mouse.y = FlxG.mouse.y;
+			var speedX:Number = Math.abs(_ninja.body.velocity.x);
+			if (speedX > 0.5)
+			{
+				if (FlxG.mouse.x < _ninja.x)
+				{
+					_ninja.facing = FlxObject.LEFT;
+				}
+				else
+				{
+					_ninja.facing = FlxObject.RIGHT;
+				}
+			}
+			
+			if (FlxG.collide(_floor, _ninja))
+			{
+				
+				//mouse functions would go here
+				
+				if (speedX > 5)
+				{
+					_ninja.run();
+				}
+				else if (speedX > 0.1)
+				{
+					_ninja.walk();
+				}
+				else
+				{
+					_ninja.idle();
+				}
+			}
 		}
 	
 	}

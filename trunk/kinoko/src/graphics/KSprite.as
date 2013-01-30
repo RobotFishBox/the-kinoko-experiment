@@ -14,7 +14,7 @@ package graphics
 		/**
 		 * KBody handles all the physics
 		 */
-		private var _body:KBody;
+		protected var _body:KBody;
 		
 		public function KSprite(X:Number = 0, Y:Number = 0, SimpleGraphic:Class = null)
 		{
