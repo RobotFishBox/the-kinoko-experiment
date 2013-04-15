@@ -10,7 +10,8 @@ package engine
 	public class KWorld
 	{
 		/**
-		 * used to relate pixels to meters
+		 * used to relate pixels to meters. All bodies in this world 
+		 * refers to this KPoint.
 		 */
 		public var pixelScale:KPoint;
 		
