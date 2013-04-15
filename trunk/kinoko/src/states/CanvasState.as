@@ -34,7 +34,7 @@ package states
 			FlxG.camera.drawDebug(FlxG.camera);
 			add(_floor);
 			
-			_world.pixelScale.make(30, 30);
+			_world.pixelScale.make(45, 45);
 			_world.gravity.make(0, 10);
 			
 			//spring and damper test
@@ -62,7 +62,7 @@ package states
 			{
 				_ninja.body.velocity.y = 0;
 				_ninja.body.acceleration.y = 0;
-				_ninja.body.force.y -= 25000;
+				_ninja.body.force.y -= 20000;
 				_ninja.jump();
 				_ninja.update();
 			}
