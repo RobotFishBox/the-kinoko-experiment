@@ -1,8 +1,10 @@
 package actors
 {
 	import assets.AssetMap;
+	import flash.display.BitmapData;
 	import graphics.KSprite;
 	import org.flixel.FlxG;
+	import org.flixel.FlxObject;
 	import org.flixel.FlxPoint;
 	
 	/**
@@ -14,28 +16,37 @@ package actors
 		/**
 		 * spring constant
 		 */
-		private var k:Number
+		private var _k:Number
 		/**
 		 * damper constant
 		 */
-		private var c:Number
+		private var _c:Number
 		
+		private var _temp:BitmapData;
 		
 		public function Ninja()
 		{
-			//graphics
 			loadGraphic(AssetMap.NINJA, true, true, 80, 80);
+			currKBitmap.offset.make(40, 0);
 			addAnimation("idle", [1, 2], 3, true);
 			addAnimation("walk", [4, 5, 6, 7, 6, 5], 12, true);
 			addAnimation("run", [20, 21, 22, 21], 12, true);
 			addAnimation("jump", [60, 61, 62], 24, false);
 			addAnimation("attack", [11, 12, 13, 14, 15], 12, false);
-			offset.x = this.width / 2;
+			
+			loadGraphic(AssetMap.NINJA2, true, false, 150, 80);
+			currKBitmap.offset.make(40, 0);
+			addAnimation("runAttackRight", [1, 2, 3, 4, 5], 20, false);
+			
+			loadGraphic(AssetMap.NINJA3, true, false, 150, 80);
+			currKBitmap.offset.make(110, 0);
+			addAnimation("runAttackLeft", [5, 4, 3, 2, 1], 20, false);
+			
 			idle();
 			
 			//set ninja properties
-			k = 2000;
-			c = 1000;
+			_k = 2000;
+			_c = 1000;
 			_body.maxVelocity.make(10, 10);
 			_body.mass = 60;
 		}
@@ -80,6 +91,22 @@ package actors
 			play("attack");
 		}
 		
+		/**
+		 * plays run attack animation
+		 */
+		public function runAttack():void
+		{
+			if (facing == FlxObject.RIGHT)
+			{
+				play("runAttackRight");
+			}
+			else if (facing == FlxObject.LEFT)
+			{
+				play("runAttackLeft");
+			}
+		
+		}
+		
 		override public function update():void
 		{
 			super.update();
@@ -87,23 +114,23 @@ package actors
 			//for tweaking
 			if (FlxG.keys.UP)
 			{
-				c++;
+				_c++;
 				trace("damper: " + c);
 			}
 			else if (FlxG.keys.DOWN)
 			{
-				c--;
+				_c--;
 				trace("damper: " + c);
 			}
 			
 			if (FlxG.keys.LEFT)
 			{
-				k++;
+				_k++;
 				trace("spring: " + k);
 			}
 			else if (FlxG.keys.RIGHT)
 			{
-				k--;
+				_k--;
 				trace("spring: " + k);
 			}
 		}
@@ -121,18 +148,18 @@ package actors
 		 * Spring constant to be used with the widget
 		 * @return spring constant
 		 */
-		public function get springK():Number
+		public function get k():Number
 		{
-			return k;
+			return _k;
 		}
 		
 		/**
 		 * Damper constant to be used with the widget
 		 * @return damper constant
 		 */
-		public function get damperC():Number
+		public function get c():Number
 		{
-			return c;
+			return _c;
 		}
 		
 		/**
