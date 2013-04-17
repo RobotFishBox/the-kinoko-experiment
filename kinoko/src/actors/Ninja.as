@@ -20,6 +20,7 @@ package actors
 		 */
 		private var c:Number
 		
+		
 		public function Ninja()
 		{
 			//graphics
@@ -135,14 +136,6 @@ package actors
 		}
 		
 		/**
-		 * minimum speed for movement in m/s
-		 */
-		public function get movementSpeed():Number
-		{
-			return 0.1;
-		}
-		
-		/**
 		 * running speed in m/s
 		 */
 		public function get runSpeed():Number
@@ -171,7 +164,7 @@ package actors
 		 */
 		public function get jumpForce():Number
 		{
-			return 20000;
+			return 25000;
 		}
 	}
 
