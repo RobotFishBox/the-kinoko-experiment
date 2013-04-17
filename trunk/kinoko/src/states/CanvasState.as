@@ -50,7 +50,6 @@ package states
 		override public function update():void
 		{	
 			_controller.grounded = FlxG.collide(_floor, _ninja);
-			
 			_world.update();
 			super.update();
 		}

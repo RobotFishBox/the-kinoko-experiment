@@ -64,8 +64,8 @@ package input
 			// attach objects
 			_kSpring.attach(_mouse, _char);
 			_kDamper.attach(_char);
-			_kSpring.k = _char.springK;
-			_kDamper.c = _char.damperC;
+			_kSpring.k = _char.k;
+			_kDamper.c = _char.c;
 			
 			// set directional effect
 			_kDamper.effect.make(1, 0);
@@ -91,8 +91,8 @@ package input
 		{
 			super.update();
 			
-			_kSpring.k = _char.springK;
-			_kDamper.c = _char.damperC;
+			_kSpring.k = _char.k;
+			_kDamper.c = _char.c;
 			
 			_mouse.x = FlxG.mouse.x;
 			_mouse.y = FlxG.mouse.y;
@@ -111,10 +111,6 @@ package input
 			if (grounded)
 			{
 				//on the ground
-				
-				
-				
-				
 				
 				if (distY > _char.jumpThreshold && grounded)
 				{
@@ -160,7 +156,7 @@ package input
 			}
 			else 
 			{
-				//in the air
+				
 			}
 		}
 	}
