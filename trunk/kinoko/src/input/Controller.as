@@ -16,6 +16,14 @@ package input
 	public class Controller extends FlxBasic
 	{
 		/**
+		 * character states
+		 */
+		private var _charState:int;
+		
+		private static const CHAR_IDLE:int = 0;
+		
+		
+		/**
 		 * spring that is attached to the cursor
 		 */
 		private var _kSpring:KSpring;
@@ -31,7 +39,9 @@ package input
 		 * Character to control
 		 */
 		private var _char:ICharacter;
-		
+		/**
+		 * is the character touching the ground?
+		 */
 		public var grounded:Boolean = false;
 		
 		public function Controller()
@@ -100,6 +110,12 @@ package input
 			
 			if (grounded)
 			{
+				//on the ground
+				
+				
+				
+				
+				
 				if (distY > _char.jumpThreshold && grounded)
 				{
 					_char.body.velocity.y = 0;
@@ -110,6 +126,9 @@ package input
 				}
 				else
 				{
+					_kDamper.effect.make(1, 0);
+					_kSpring.effect.make(1, 0);
+					
 					var speedX:Number = Math.abs(_char.body.velocity.x);
 					if (speedX > _char.runSpeed)
 					{
@@ -138,6 +157,10 @@ package input
 						}
 					}
 				}
+			}
+			else 
+			{
+				//in the air
 			}
 		}
 	}

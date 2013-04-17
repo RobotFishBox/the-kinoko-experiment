@@ -22,7 +22,7 @@ package states
 	 */
 	public class CanvasState extends FlxState
 	{
-		private var _floor:FlxTileblock = new FlxTileblock(-50, 650, 600, 32);
+		private var _floor:FlxTileblock = new FlxTileblock(-50, 650, 1000, 32);
 		private var _world:KWorld = new KWorld();
 		private var _ninja:Ninja = new Ninja();
 		private var _mouse:Cursor = new Cursor();
@@ -30,7 +30,7 @@ package states
 		
 		override public function create():void
 		{
-			_floor.makeGraphic(600, 32, 0xff689c16);
+			_floor.makeGraphic(1000, 32, 0xff689c16);
 			FlxG.camera.drawDebug(FlxG.camera);
 			add(_floor);
 			
@@ -44,7 +44,7 @@ package states
 			add(_ninja);
 			
 			FlxG.camera.follow(_ninja, FlxCamera.STYLE_PLATFORMER);
-			FlxG.camera.setBounds(0, -2000, 500, 5000);
+			FlxG.camera.setBounds(0, -2000, 900, 5000);
 		}
 		
 		override public function update():void
