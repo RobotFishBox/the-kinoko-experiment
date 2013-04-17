@@ -8,7 +8,7 @@ package assets
 	public class AssetMap
 	{
 		[Embed(source="../../data/temp/ninja.png")]
-		static public var TEMPLATE:Class;
+		static public var NINJA:Class;
 	}
 
 }

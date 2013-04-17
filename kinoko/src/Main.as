@@ -6,7 +6,7 @@ package
 	 * ...
 	 * @author Anderson Li
 	 */
-	[SWF(backgroundColor="#000000",width="500",height="250",frameRate="30")]
+	[SWF(backgroundColor="#000000",width="500",height="650",frameRate="30")]
 	[Frame(factoryClass="Preloader")]
 	
 	public class Main extends FlxGame
@@ -14,7 +14,7 @@ package
 		
 		public function Main()
 		{
-			super(500, 250, CanvasState);
+			super(500, 650, CanvasState);
 		}
 	
 	}
