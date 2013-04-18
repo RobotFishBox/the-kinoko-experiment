@@ -29,18 +29,21 @@ package actors
 			loadGraphic(AssetMap.NINJA, true, true, 80, 80);
 			currKBitmap.offset.make(40, 0);
 			addAnimation("idle", [1, 2], 3, true);
+			addAnimation("defend", [56, 57], 24, false);
+			addAnimation("roll", [16, 17, 18, 19], 12, false);
 			addAnimation("walk", [4, 5, 6, 7, 6, 5], 12, true);
 			addAnimation("run", [20, 21, 22, 21], 12, true);
 			addAnimation("jump", [60, 61, 62], 24, false);
+			addAnimation("jumpAttack", [67, 68, 69, 29, 39, 49, 59, 62], 12, false);
 			addAnimation("attack", [11, 12, 13, 14, 15], 12, false);
 			
 			loadGraphic(AssetMap.NINJA2, true, false, 150, 80);
 			currKBitmap.offset.make(40, 0);
-			addAnimation("runAttackRight", [1, 2, 3, 4, 5], 20, false);
+			addAnimation("runAttackRight", [1, 2, 3, 4, 5], 12, false);
 			
 			loadGraphic(AssetMap.NINJA3, true, false, 150, 80);
 			currKBitmap.offset.make(110, 0);
-			addAnimation("runAttackLeft", [5, 4, 3, 2, 1], 20, false);
+			addAnimation("runAttackLeft", [5, 4, 3, 2, 1], 12, false);
 			
 			idle();
 			
@@ -57,6 +60,22 @@ package actors
 		public function idle():void
 		{
 			play("idle");
+		}
+		
+		/**
+		 * plays defend animation
+		 */
+		public function defend():void
+		{
+			play("defend");
+		}
+		
+		/**
+		 * plays roll animation
+		 */
+		public function roll():void
+		{
+			play("roll");
 		}
 		
 		/**
@@ -84,6 +103,14 @@ package actors
 		}
 		
 		/**
+		 * plays jump animation
+		 */
+		public function jumpAttack():void
+		{
+			play("jumpAttack");
+		}
+		
+		/**
 		 * plays attack animation
 		 */
 		public function attack():void
@@ -106,35 +133,6 @@ package actors
 			}
 		
 		}
-		
-		override public function update():void
-		{
-			super.update();
-			
-			//for tweaking
-			if (FlxG.keys.UP)
-			{
-				_c++;
-				trace("damper: " + c);
-			}
-			else if (FlxG.keys.DOWN)
-			{
-				_c--;
-				trace("damper: " + c);
-			}
-			
-			if (FlxG.keys.LEFT)
-			{
-				_k++;
-				trace("spring: " + k);
-			}
-			else if (FlxG.keys.RIGHT)
-			{
-				_k--;
-				trace("spring: " + k);
-			}
-		}
-		
 		/**
 		 * Allows other classes to control this actor as a character.
 		 * @return itself
@@ -177,7 +175,6 @@ package actors
 		{
 			return 0.05;
 		}
-		
 		/**
 		 * distance before character jumps in pixels
 		 */
@@ -185,13 +182,46 @@ package actors
 		{
 			return 25;
 		}
-		
+		/**
+		 * distance before character rolls in pixels
+		 */
+		public function get rollThreshold():Number
+		{
+			return 150;
+		}
 		/**
 		 * jump force measured in newtons
 		 */
 		public function get jumpForce():Number
 		{
 			return 25000;
+		}
+		override public function update():void
+		{
+			super.update();
+			
+			//for tweaking
+			if (FlxG.keys.UP)
+			{
+				_c++;
+				trace("damper: " + c);
+			}
+			else if (FlxG.keys.DOWN)
+			{
+				_c--;
+				trace("damper: " + c);
+			}
+			
+			if (FlxG.keys.LEFT)
+			{
+				_k++;
+				trace("spring: " + k);
+			}
+			else if (FlxG.keys.RIGHT)
+			{
+				_k--;
+				trace("spring: " + k);
+			}
 		}
 	}
 
