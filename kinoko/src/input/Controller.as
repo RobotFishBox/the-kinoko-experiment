@@ -49,6 +49,14 @@ package input
 		 * jump flag lets the chraacter know if it is okay to jump.
 		 */
 		private var jumpFlag:Boolean = true;
+		/**
+		 * activates when mouse reaches upper limit
+		 */
+		private var attackUpperFlag:uint = 0;
+		/**
+		 * activates when mouse reach lower limits
+		 */
+		private var attackLowerFlag:uint = 0;
 		 
 		/**
 		 * spring that is attached to the cursor
@@ -152,6 +160,8 @@ package input
 					_char.defend();
 					autoFacing();
 					setMouseControl = false;
+					attackUpperFlag = 0;
+					attackLowerFlag = 0;
 					
 					_char.body.velocity.make(0, 0);
 					_char.kSprite.update();
@@ -166,10 +176,23 @@ package input
 					_char.kSprite.update();
 					
 					var distX:Number = Math.abs(_char.kSprite.x - _mouse.x);
+					
 					if (_mouseState == MOUSE_JUST_RELEASED)
 						_charState = CHAR_IDLE;
 					else if (distX > _char.rollThreshold)
 						_charState = CHAR_ROLL;
+					else 
+					{
+						var distY:Number = (_char.kSprite.y + _char.kSprite.height/2)  - _mouse.y;
+						if (distY > 0)
+							attackLowerFlag ++;
+							//TODO: make the flag increment 3 times before
+						else
+							attackUpperFlag ++;
+						
+						if (attackLowerFlag + attackUpperFlag >= 3)
+							_charState = CHAR_ATTACK
+					}
 					break;
 					
 				case CHAR_ROLL:
@@ -181,7 +204,10 @@ package input
 				case CHAR_ROLL_IDLE:
 					removeBounceBack();
 					if (_char.kSprite.finished)
+					{
 						autoMovement(CHAR_IDLE);
+						setMouseControl = true;
+					}
 					break;
 					
 				case CHAR_ATTACK: 
@@ -215,7 +241,10 @@ package input
 				case CHAR_RUN_ATTACK_IDLE: 
 					removeBounceBack();
 					if (_char.kSprite.finished)
+					{
 						autoMovement(CHAR_IDLE);
+						setMouseControl = true;
+					}
 					break;
 				
 				case CHAR_JUMP: 
@@ -262,19 +291,17 @@ package input
 		{
 			if (_char.kSprite.facing == FlxObject.LEFT)
 			{
-				if (_char.body.velocity.x > 0)
-				{
-					_char.body.velocity.x = 0;
-					_char.kSprite.update();
-				}
+				if (FlxG.mouse.x < _char.kSprite.x)
+					setMouseControl = true;
+				else
+					setMouseControl = false;
 			}
 			else if (_char.kSprite.facing == FlxObject.RIGHT)
 			{
-				if (_char.body.velocity.x < 0)
-				{
-					_char.body.velocity.x = 0;
-					_char.kSprite.update();
-				}
+				if (FlxG.mouse.x > _char.kSprite.x)
+					setMouseControl = true;
+				else
+					setMouseControl = false;
 			}
 		}
 		
