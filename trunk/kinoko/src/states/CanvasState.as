@@ -1,5 +1,6 @@
 package states
 {
+	import actors.Grunt;
 	import actors.Ninja;
 	import engine.widgets.KDamper;
 	import engine.widgets.KSpring;

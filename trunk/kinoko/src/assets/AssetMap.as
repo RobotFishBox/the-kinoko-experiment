@@ -15,6 +15,9 @@ package assets
 		
 		[Embed(source="../../data/temp/ninja3.png")]
 		static public var NINJA3:Class;
+		
+		[Embed(source="../../data/temp/grunt.png")]
+		static public var GRUNT:Class;
 	}
 
 }
