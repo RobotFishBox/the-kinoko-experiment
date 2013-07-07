@@ -22,11 +22,11 @@ package actors
 		function get runSpeed():Number;
 		function get walkSpeed():Number;
 		function get jumpThreshold():Number;
-		 function get rollThreshold():Number;
+		function get rollThreshold():Number;
 		function get jumpForce():Number;
 		
 		function get k():Number;
-		function get c():Number
+		function get c():Number;
 	}
 
 }

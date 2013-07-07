@@ -46,7 +46,7 @@ package input
 		private static const MOUSE_JUST_RELEASED:uint = 3;
 		
 		/**
-		 * jump flag lets the chraacter know if it is okay to jump.
+		 * jump flag lets the character know if it is okay to jump.
 		 */
 		private var jumpFlag:Boolean = true;
 		/**
@@ -74,10 +74,6 @@ package input
 		 * Character to control
 		 */
 		private var _char:ICharacter;
-		/**
-		 * is the character touching the ground?
-		 */
-		public var grounded:Boolean = false;
 		
 		public function Controller()
 		{
@@ -261,7 +257,7 @@ package input
 				
 				case CHAR_JUMP_IDLE: 
 					autoFacing();
-					if (grounded)
+					if (_char.body.grounded)
 						_charState = CHAR_IDLE;
 					else if (_mouseState == MOUSE_JUST_PRESSED)
 						_charState = CHAR_JUMP_ATTACK;
@@ -270,7 +266,7 @@ package input
 				case CHAR_JUMP_ATTACK: 
 					_char.jumpAttack();
 					autoFacing();
-					if (grounded)
+					if (_char.body.grounded)
 						_charState = CHAR_IDLE;
 					else
 						_charState = CHAR_JUMP_ATTACK_IDLE
@@ -278,7 +274,7 @@ package input
 				
 				case CHAR_JUMP_ATTACK_IDLE: 
 					autoFacing();
-					if (grounded)
+					if (_char.body.grounded)
 						_charState = CHAR_IDLE;
 			}
 		}
