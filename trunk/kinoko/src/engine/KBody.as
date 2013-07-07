@@ -54,12 +54,17 @@ package engine
 		 */
 		public var fixed:Boolean;
 		
+		/**
+		 * is the character touching the ground?
+		 */
+		public var grounded:Boolean;
+		
 		public function KBody(X:Number = 0, Y:Number = 0, PixelScale:KPoint = null)
 		{
 			x = X;
 			y = Y;
 			mass = 1;
-			fixed = false;
+			fixed = grounded = false;
 			pixelScale = PixelScale;
 			velocity = new KPoint();
 			maxVelocity = new KPoint(10000, 10000);
