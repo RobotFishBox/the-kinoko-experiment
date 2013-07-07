@@ -6,7 +6,7 @@ package states
 	import engine.widgets.KSpring;
 	import graphics.KSprite;
 	import engine.KWorld;
-	import input.Controller;
+	import input.MouseController;
 	import input.Cursor;
 	import org.flixel.FlxCamera;
 	import org.flixel.FlxG;
@@ -28,8 +28,7 @@ package states
 		private var _ninja:Ninja = new Ninja();
 		private var _grunt:Grunt = new Grunt();
 		private var _mouse:Cursor = new Cursor();
-		private var _controller:Controller = new Controller();
-		private var _controller2:Controller = new Controller();
+		private var _controller:MouseController = new MouseController();
 		
 		override public function create():void
 		{
@@ -54,6 +53,7 @@ package states
 		
 		override public function update():void
 		{
+			//TODO add the floor to the world so we can check collision in _world.update()
 			_ninja.body.grounded = FlxG.collide(_floor, _ninja);
 			_grunt.body.grounded = FlxG.collide(_floor, _grunt);
 			_world.update();
