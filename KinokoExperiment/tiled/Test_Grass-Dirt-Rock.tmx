@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="isometric" width="100" height="100" tilewidth="128" tileheight="64">
+ <tileset firstgid="1" name="Dirt" tilewidth="128" tileheight="128">
+  <image source="Assets/Dirt/Dirt.png" trans="ffffff" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="2" name="Dirt1" tilewidth="128" tileheight="128">
+  <image source="Assets/Dirt/Dirt1.png" trans="ffffff" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="3" name="Dirt2" tilewidth="128" tileheight="128">
+  <image source="Assets/Dirt/Dirt2.png" trans="ffffff" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="4" name="Dirt3" tilewidth="128" tileheight="128">
+  <image source="Assets/Dirt/Dirt3.png" trans="ffffff" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="5" name="DirtGrass" tilewidth="128" tileheight="128">
+  <image source="assets/dirtGrass/DirtGrass.png" trans="ffffff" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="6" name="DirtGrass1" tilewidth="128" tileheight="128">
+  <image source="assets/dirtGrass/DirtGrass1.png" trans="ffffff" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="7" name="DirtGrass2" tilewidth="128" tileheight="128">
+  <image source="assets/dirtGrass/DirtGrass2.png" trans="ffffff" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="8" name="Grass" tilewidth="128" tileheight="128">
+  <image source="assets/grass/Grass.png" trans="ffffff" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="9" name="Grass1" tilewidth="128" tileheight="128">
+  <image source="assets/grass/Grass1.png" trans="ffffff" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="10" name="Grass2" tilewidth="128" tileheight="128">
+  <image source="assets/grass/Grass2.png" trans="ffffff" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="11" name="GrassDirt" tilewidth="128" tileheight="128">
+  <image source="assets/grassDirt/GrassDirt.png" trans="ffffff" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="12" name="GrassDirt1" tilewidth="128" tileheight="128">
+  <image source="assets/grassDirt/GrassDirt1.png" trans="ffffff" width="128" height="128"/>
+ </tileset>
+ <tileset firstgid="13" name="GrassDirt2" tilewidth="128" tileheight="128">
+  <image source="assets/grassDirt/GrassDirt2.png" trans="ffffff" width="128" height="128"/>
+ </tileset>
+ <layer name="Tile Layer 1" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt2otOwkAQBdAKKKLw/78rmzBxMnRLrUUTOCe5kVdIs9fddqvDAAAAAAAAAAAAAAAAAAAAAAAAAADw2N47eT3n45zT/x3aU4qxH0v0sTnnZcZPfi/6+Lykzo+WOV1s/vrAH9StPk7pvXj/cMkx5fDXB/6g8nrVxntT0vqIeRJ9vMwIy+T50NI62F/SHn8O1/OjjfexvH4c9LGGNr4xpr0+ooP2fHvObjA/7qX+/tf1KuZP7mb7L0f6HPI5PObB2Bq1Hb7nkmup+8ljvktp45/PH/k169H9zO0jPlPnzlj2ndR7AFybM74/SRvnqT7y+lj3PL3vZJk8P04l++F2j71OWCbGL/bu9XlvfuS0a27XzuuJ8a/jHK9NaWM/dl+T5eoalPcyt/rI9wgi+lhH3l/mtWlKzA99rO9WH/Uecb7HbL1ax66k3RPOfeQ9R1wDRy+v6TP1nM8yU33EPeSQ9yW1k7dL4jnL9PrICbEniQR9rOenfeTPhXr+0MdybyOJa6S4bgqtg14f9ufr2JZM9ZH/DvwxcA9z+ojH9f8hWF9vvar7u7rXsCYBAAAAAAAAAPAsvgD69g1W
+  </data>
+ </layer>
+ <layer name="Tile Layer 2" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJzt2LEKgCAYhdHfIiiy93/dHBwaIpxS6hz4JhfhgoMRAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN+Sel8A+L25NJWWmzNv1Pue9gAAABjJUcultfNdsMdocm0Le4xgv9SyRwr/YiOxBwAAAAAAAAAAAECbE5h7AMk=
+  </data>
+ </layer>
+ <layer name="Tile Layer 3" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+  </data>
+ </layer>
+</map>
