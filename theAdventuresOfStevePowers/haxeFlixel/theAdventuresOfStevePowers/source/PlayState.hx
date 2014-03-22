@@ -22,7 +22,7 @@ class PlayState extends FlxState
 		FlxG.cameras.bgColor = 0xff131c1b;
 		// Show the mouse (in case it hasn't been disabled)
 		#if !FLX_NO_MOUSE
-		FlxG.mouse.show();
+		FlxG.mouse.visible = true;
 		#end
 		
 		super.create();
