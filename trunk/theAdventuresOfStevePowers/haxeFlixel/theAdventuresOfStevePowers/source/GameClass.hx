@@ -6,8 +6,8 @@ import flixel.FlxState;
 
 class GameClass extends FlxGame
 {
-	var gameWidth:Int = 640; // Width of the game in pixels (might be less / more in actual pixels depending on your zoom).
-	var gameHeight:Int = 480; // Height of the game in pixels (might be less / more in actual pixels depending on your zoom).
+	var gameWidth:Int = 1280; // Width of the game in pixels (might be less / more in actual pixels depending on your zoom).
+	var gameHeight:Int = 720; // Height of the game in pixels (might be less / more in actual pixels depending on your zoom).
 	var initialState:Class<FlxState> = MenuState; // The FlxState the game starts with.
 	var zoom:Float = -1; // If -1, zoom is automatically calculated to fit the window dimensions.
 	var framerate:Int = 60; // How many frames per second the game should run at.
@@ -31,6 +31,6 @@ class GameClass extends FlxGame
 			gameHeight = Math.ceil(stageHeight / zoom);
 		}
 
-		super(gameWidth, gameHeight, initialState, zoom, framerate, framerate, skipSplash, startFullscreen);
+		super(gameWidth, gameHeight, PlayState, zoom, framerate, framerate, skipSplash, startFullscreen);
 	}
 }
